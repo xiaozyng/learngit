@@ -1,5 +1,9 @@
 #git工作流程
 
+git分为三个区，分别为 工作区(work),暂存区(stage),主分支(master)。
+提交顺序为：
+
+work --add--> stage --commit--> master
 
 
 
@@ -18,7 +22,7 @@ git init                    #创建当前目录为版本库目录，git会在目
 
 ##文件控制
 git add <file>              #新增一个文件至暂存区
-git commit -m <note>        #提交当前改动并添加注释
+git commit -m <note>        #提交当前改动至master并添加注释
 git commit -am <note>       #相当于add + commit -m
 git rm <file>               #删除一个文件
 ##浏览版本控制
@@ -31,7 +35,7 @@ git log --pretty=oneline    #只显示各版本的版本号
 ##版本库回滚
 git reset --hard <release code/HEAD/HEAD^/HEAD^^>        #将暂存区内容回滚至<版本号/上一个版本/上上一个版本>
 git reflog                  #查看回滚日志
-git checkout -- <file>      #将工作区内容回滚至版本库
+git checkout -- <file>      #将工作区内容回滚至master最新版本
 
 ##分支
 git branch                 #查看当前分支信息
