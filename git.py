@@ -16,10 +16,11 @@ git config --global user.email "email@example.com"     #设置你的email地址
 ##版本库创建
 git init                    #创建当前目录为版本库目录，git会在目录下创建.git的隐藏文件夹用来存放git的版本控制文件等
 
-##文件提交至暂存区与版本库
+##文件控制
 git add <file>              #新增一个文件至暂存区
 git commit -m <note>        #提交当前改动并添加注释
-
+git commit -am <note>       #相当于add + commit -m
+git rm <file>               #删除一个文件
 ##浏览版本控制
 git status                  #查看当前git的提交信息
 git diff <file>             #查看当前文件与当前HEAD版本库中的差异
@@ -33,3 +34,9 @@ git reflog                  #查看回滚日志
 git checkout -- <file>      #将工作区内容回滚至版本库
 
 ##分支
+git branch                 #查看当前分支信息
+git branch <分支名>        #创建分支
+git checkout <分支名>      #切换到分支
+git checkout -b <分支名>   #相当于branch + checkout ，创建分支并切换至对应分支
+git merge <分支名>         #合并分支至master
+git branch -d <分支名>     #删除分支
