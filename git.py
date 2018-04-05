@@ -25,6 +25,8 @@ git diff <file>             #查看当前文件与当前HEAD版本库中的差�
 git diff ^HEAD -- <file>     #查看当前文件与上个HEAD版本库中的差异
 git log                     #查看git commit的历史日志
 git log --pretty=oneline    #只显示各版本的版本号
+git log --graph             #显示图形化log
+git log --abbrev-commit     #显示短的commit code
 
 ##版本库回滚
 git reset --hard <release code/HEAD/HEAD^/HEAD^^>        #将暂存区内容回滚至<版本号/上一个版本/上上一个版本>
