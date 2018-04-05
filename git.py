@@ -13,12 +13,13 @@ git config --global user.email "email@example.com"     #设置你的email地址
 ##版本库创建
 git init                    #创建当前目录为版本库目录，git会在目录下创建.git的隐藏文件夹用来存放git的版本控制文件等
 
-##文件控制
+##提交与删除
 git add <file>              #新增一个文件至暂存区
 git commit -m <note>        #提交当前改动至master并添加注释
 git commit -am <note>       #相当于add + commit -m
 git rm <file>               #删除一个文件
-##浏览版本控制
+
+##状态以及日志浏览
 git status                  #查看当前git的提交信息
 git diff <file>             #查看当前文件与当前HEAD版本库中的差异
 git diff ^HEAD -- <file>     #查看当前文件与上个HEAD版本库中的差异
@@ -37,3 +38,9 @@ git checkout <分支名>      #切换到分支
 git checkout -b <分支名>   #相当于branch + checkout ，创建分支并切换至对应分支
 git merge <分支名>         #合并分支至master
 git branch -d <分支名>     #删除分支
+
+##远程仓库
+ssh-keygen -t rsa -C "email@example.com"        #生成非对称密钥
+git remote add origin https://github.com/xiaozyng/learngit.git          #在本地添加远程仓库
+git push -u origin master       #首次push本地master至远程仓库，-u参数表示将此分支与远程仓库的做关联，之后的push、pull不需要再指定upstream，git就会自动的将找到对应分支。
+git pull origin [<分支]
