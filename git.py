@@ -63,10 +63,15 @@ git push origin :<分支>         #删除远程仓库分支
 
 ##标签管理
 git tag                             #查看所有tag信息
-git tag -m <note> -s <gpg key> <tag> <commit code>          #添加一个tag，-m 添加注释；-s 添加gpg key认证；commit code可以为之前的版本添加tag；
+git tag -m <note> <tag> <commit code>          #添加一个tag，-m 添加注释；-s 添加gpg key认证；commit code可以为之前的版本添加tag；
 git tag -d <tag>                    #删除一个tag
 git tag -a <tag> -m <note>          #为一个指定tag添加注释信息
 git push origin <tag>               #推送某个标签至远程仓库
 git push origin --tags              #推送所有标签至远程仓库
 git push origin :refs/tags/<tag>    #删除远程仓库上的某个标签，需要先tag -d删除本地标签后，才能删除远程仓库的标签
+
+gpg --gen-key                       #创建pgp key，交互型命令
+gpg --list-keys                     #列出所有的pgp keys
+git tag -m <note> -s <tag> -u <pgp key uid>     #新建标签添加gpg key认证
+gpg tag -v <tag>                    #调用gpg验证key，如key匹配，则会显示具体的key的信息
 
