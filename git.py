@@ -73,5 +73,5 @@ git push origin :refs/tags/<tag>    #删除远程仓库上的某个标签，需�
 gpg --gen-key                       #创建pgp key，交互型命令
 gpg --list-keys                     #列出所有的pgp keys
 git tag -m <note> -s <tag> -u <pgp key uid>     #新建标签添加gpg key认证
-gpg tag -v <tag>                    #调用gpg验证key，如key匹配，则会显示具体的key的信息
+git tag -v <tag>                    #调用gpg验证key，如key匹配，则会显示具体的key的信息
 
