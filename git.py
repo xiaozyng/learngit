@@ -44,4 +44,4 @@ ssh-keygen -t rsa -C "email@example.com"        #生成非对称密钥
 git remote add origin https://github.com/xiaozyng/learngit.git          #在本地添加远程仓库
 git push -u origin master       #首次push本地master至远程仓库，-u参数表示将此分支与远程仓库的做关联，之后的push、pull不需要再指定upstream，git就会自动的将找到对应分支。
 git pull origin [分支]          #pull
-git push oragin :<分支>         #删除远程仓库分支
+git push origin :<分支>         #删除远程仓库分支
