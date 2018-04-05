@@ -5,13 +5,6 @@ git分为三个区，分别为 工作区(work),暂存区(stage),主分支(master
 
 work --add--> stage --commit--> master
 
-aaaaaaaaaaaaaaaaa
-
-
-ddddddddddddddddddddddddddd
-ssssssssss
-
-
 #command
 ##设置
 git config --global user.name "your name"               #设置你的git用户名
