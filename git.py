@@ -35,16 +35,29 @@ git checkout -- <file>      #将工作区内容回滚至master最新版本
 
 ##分支
 git branch                  #查看当前分支信息
-git branch <分支名>         #创建分支
-git checkout <分支名>       #切换到分支
-git checkout -b <分支名>    #相当于branch + checkout ，创建分支并切换至对应分支
-git merge <分支名>          #合并分支至master  
-git branch -d <分支名>      #删除分支
-git merge --no-ff  -m <note> <分支>       #普通模式合并,合并后Log可以看出合并历史。
+git branch <分支>           #创建分支
+git branch --set-upstream <分支> <origin/分支>          #将本地分支与远程仓库的一个分支关联
+git checkout <分支>         #切换到分支
+git checkout -b <分支>      #相当于branch + checkout ，创建分支并切换至对应分支
+git checkout -b <分支> <origin/分支>  #在本地创建与远程仓库关联的分支，并且还至创建的本地分支
+git branch -d <分支>        #删除分支
+git branch -D <分支>        #强制删除未合并的分支，使用此选项会产生数据丢失的结果。
+git merge <分支名>          #合并分支至master
+git merge --no-ff  -m <note> <分支>       #普通模式合并,合并后Log可以看出合并历史
+
+##储存内容
+git stash                   #将当前工作区内容存储起来，暂存区会取回工作区后储存
+git stash list              #显示当前储存的内容信息
+git stash pop [stash@{0}]       #释放存储的内容，并将存储区的对应内容删除，stash@{0}、stash@{1}...代表多次存储时每个存储内容的标识，可以自由选择释放哪个存储
+git stash allpy [stash@{0}]     #释放存储的内容，但是不将存储区的对应内容删除
+git stash drop [stash@{0}]      #与allpy搭配使用，手动删除存储区的内容
 
 ##远程仓库
 ssh-keygen -t rsa -C "email@example.com"        #生成非对称密钥
 git remote add origin https://github.com/xiaozyng/learngit.git          #在本地添加远程仓库
+git remote -v                   #显示远程仓库的信息，-v 详细信息
 git push -u origin master       #首次push本地master至远程仓库，-u参数表示将此分支与远程仓库的做关联，之后的push、pull不需要再指定upstream，git就会自动的将找到对应分支。
 git pull origin [分支]          #pull
 git push origin :<分支>         #删除远程仓库分支
+
+##标签管理
