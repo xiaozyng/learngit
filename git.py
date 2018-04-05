@@ -27,6 +27,7 @@ git log                     #查看git commit的历史日志
 git log --pretty=oneline    #只显示各版本的版本号
 git log --graph             #显示图形化log
 git log --abbrev-commit     #显示短的commit code
+git show [tag|file]         #显示tag|file的详细信息
 
 ##版本库回滚
 git reset --hard <release code/HEAD/HEAD^/HEAD^^>        #将暂存区内容回滚至<版本号/上一个版本/上上一个版本>
@@ -46,8 +47,8 @@ git merge <分支名>          #合并分支至master
 git merge --no-ff  -m <note> <分支>       #普通模式合并,合并后Log可以看出合并历史
 
 ##储存内容
-git stash                   #将当前工作区内容存储起来，暂存区会取回工作区后储存
-git stash list              #显示当前储存的内容信息
+git stash                       #将当前工作区内容存储起来，暂存区会取回工作区后储存
+git stash list                  #显示当前储存的内容信息
 git stash pop [stash@{0}]       #释放存储的内容，并将存储区的对应内容删除，stash@{0}、stash@{1}...代表多次存储时每个存储内容的标识，可以自由选择释放哪个存储
 git stash allpy [stash@{0}]     #释放存储的内容，但是不将存储区的对应内容删除
 git stash drop [stash@{0}]      #与allpy搭配使用，手动删除存储区的内容
@@ -61,3 +62,11 @@ git pull origin [分支]          #pull
 git push origin :<分支>         #删除远程仓库分支
 
 ##标签管理
+git tag                             #查看所有tag信息
+git tag -m <note> -s <gpg key> <tag> <commit code>          #添加一个tag，-m 添加注释；-s 添加gpg key认证；commit code可以为之前的版本添加tag；
+git tag -d <tag>                    #删除一个tag
+git tag -a <tag> -m <note>          #为一个指定tag添加注释信息
+git push origin <tag>               #推送某个标签至远程仓库
+git push origin --tags              #推送所有标签至远程仓库
+git push origin :refs/tags/<tag>    #删除远程仓库上的某个标签，需要先tag -d删除本地标签后，才能删除远程仓库的标签
+
